@@ -5,7 +5,8 @@ before_install:
 - docker build --pull -t build_image .
 
 script:
-- docker run --volume "$(pwd)/iso:/iso"
+# Give 1 hour
+- travis_wait 60 sleep infinity & docker run --volume "$(pwd)/iso:/iso"
   --volume "$(pwd)/configuration.nix:/build/configuration.nix"
   --rm -it build_image
 
