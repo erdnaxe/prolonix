@@ -1,8 +1,21 @@
 services:
-  - docker
+- docker
 
 before_install:
-  - docker build --pull -t build_image .
+- docker build --pull -t build_image .
 
 script:
-  - docker run --volume "$(pwd)/iso:/build/result/iso" --volume "$(pwd)/configuration.nix:/build/configuration.nix" --rm -it build_image
+- docker run --volume "$(pwd)/iso:/iso"
+  --volume "$(pwd)/configuration.nix:/build/configuration.nix"
+  --rm -it build_image
+
+# Create a draft release on GitHub repository
+deploy:
+  provider: releases
+  api_key:
+    secure: PoJzCGzyPKeH9S/+S9usolQNjqxjcDvXXxecjfjc6YqXTIHtO0+zhxgzDrKRH3M8DFPRrM1zcPRCH6aRQq0p5UX3T69RLivKqrWKuE80GmzRaj8KQcRa58l+vu0aEUdagKYfOFUTal9vdfOjHZ6lJpHtftq9TDvELn+g8RQ+IdFgulALaZrsnoxg5ZcsM8drqtnKLV0EqwF51l8xelL5xqCRGPD4UuvDld8QM+x7eWZupjlk0S5B/sGWsIKv5nOjWRPuXZOAd6kYEkfxGlWQu4Fj1AcD5aB2b/+XHu+leX2EGWPN3fXtAGKbh9F4c4N5DxMlQczEpzHy4zSAvMFY2phBVPivrbdNsOkT+mHRlNMYw1xqSzLmUEVzOaBblVqIwTuzH2MTccBeQz0hGBnC4KZola3FRqsg4J/qc8zQBhPgAgL8a+9W/lbJ/1umk3Hq+8GmY4HkQG8G7yrI14M36W2OxuCazvzAKEDkwxzukwtkXYQ+JF7RKZfPrtg8JHlSoMiU8V/sr8+zaVzhJZEDh7OuUywkp/JKNVzJD1EtglemenxJry1H7U/de6UHMH1PqioYTxO1zB80AeAM5Uyc/JEoxy5UFkuHeB/Jh53wP+iO2+vnsSaCtTdFqjNXoyzW6393LOZTEPqdQfAQ45iuR6v1uYRp7m6rR+B5zCenoyY=
+  file: iso/nixos.iso
+  skip_cleanup: true
+  draft: true
+  on:
+    repo: erdnaxe/prolonix
