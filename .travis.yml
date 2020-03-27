@@ -18,5 +18,6 @@ deploy:
   file: iso/prolonix.iso
   skip_cleanup: true
   draft: true
+  overwrite: true
   on:
     repo: erdnaxe/prolonix
