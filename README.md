@@ -1,5 +1,7 @@
 # ProloNix
 
+[![Build Status](https://travis-ci.com/erdnaxe/prolonix.svg?branch=master)](https://travis-ci.com/erdnaxe/prolonix)
+
 This repository contains two images configuration :
 
   * `config/iso-image.nix` builds an ISO file ready to be burn to a DVD or USB
