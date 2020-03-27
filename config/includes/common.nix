@@ -10,22 +10,9 @@
 
     # Hardened kernel and userspace
     #<nixpkgs/nixos/modules/profiles/hardened.nix>
-  ];
 
-  # Selected packages
-  environment.systemPackages = [
-    # Some text editors.
-    pkgs.vim
-    pkgs.emacs
-
-    # Some compression/archiver tools.
-    pkgs.unzip
-    pkgs.zip
-
-    # Commandline tools
-    pkgs.screen
-    pkgs.tmux
-    pkgs.git
+    # Selected packages
+    ./packages.nix
   ];
 
   # Set NixOS version
@@ -86,5 +73,5 @@
   hardware.bluetooth.enable = false;
 
   # Disable printing
-  config.services.printing.enable = false;
+  services.printing.enable = false;
 }
