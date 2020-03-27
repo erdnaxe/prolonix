@@ -15,15 +15,17 @@ For now, only the iso image is tested.
 With Docker just run :
 
 ```bash
-docker build --pull -t build_image .
 docker run --volume "$(pwd)/iso:/iso" --volume "$(pwd)/config:/config" \
-    --rm -it build_image
+    --rm -it nixos/nix \
+    /bin/sh -c "nix-build -A config.system.build.isoImage \
+    -I nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz \
+    /config/iso-image.nix && mv result/iso/* /iso/"
 ```
 
 Without Docker you will need a working installation of nix and run :
 
 ```bash
-nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage \
-    -I nixos-config=config/iso-image.nix --show-trace
+nix-build -A config.system.build.isoImage config/iso-image.nix \
+    -I nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz
 ```
 
