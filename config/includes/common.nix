@@ -51,7 +51,7 @@
   services.gnome3.rygel.enable = false;
   services.avahi.enable = false;
   services.geoclue2.enable = false;
-  services.xserver.desktopManager.gnome3.excludePackages = [
+  environment.gnome3.excludePackages = [
     pkgs.gnome3.simple-scan
     pkgs.gnome3.epiphany
     pkgs.gnome3.geary
