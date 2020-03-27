@@ -7,7 +7,7 @@ before_install:
 script:
 # Give 1 hour
 - travis_wait 60 sleep infinity & docker run --volume "$(pwd)/iso:/iso"
-  --volume "$(pwd)/configuration.nix:/build/configuration.nix"
+  --volume "$(pwd)/config:/config"
   --rm -it build_image
 
 # Create a draft release on GitHub repository

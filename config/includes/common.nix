@@ -10,12 +10,6 @@
 
     # Hardened kernel and userspace
     #<nixpkgs/nixos/modules/profiles/hardened.nix>
-
-    # Build an GPT/MBR hybrid ISO image with GRUB2 and isolinux
-    <nixpkgs/nixos/modules/installer/cd-dvd/iso-image.nix>
-
-    # Build a netboot image
-    #<nixpkgs/nixos/modules/installer/netboot/netboot.nix>
   ];
 
   # Selected packages
@@ -39,12 +33,6 @@
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager.defaultSession = "gnome-xorg";
-
-  # Make bootable EFI/MBR ISO with memtest86+
-  isoImage.volumeID = "PROLOGIN";
-  isoImage.makeEfiBootable = true;
-  isoImage.makeUsbBootable = true;
-  boot.loader.grub.memtest86.enable = true;
 
   # Show Plymouth bootscreen
   boot.plymouth.enable = true;
