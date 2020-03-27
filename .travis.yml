@@ -1,4 +1,5 @@
 language: nix
+nix: 2.3
 script: nix-build -A config.system.build.isoImage config/iso-image.nix
   -I nixpkgs=https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz
 
