@@ -4,7 +4,7 @@
 
 This repository contains two images configuration :
 
-  * `config/iso-image.nix` builds an ISO file ready to be burn to a DVD or USB
+  * `config/iso-image.nix` builds an ISO file ready to be burnt to a DVD or USB
     device.
   * `config/netboot.nix` builds a netboot image.
 
