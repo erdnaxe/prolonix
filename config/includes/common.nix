@@ -31,6 +31,9 @@
   # Set NixOS version
   system.stateVersion = "20.03";
 
+  # Remove NixOS documentation
+  documentation.nixos.enable = false;
+
   # Add XFCE4, Gnome3 and i3 and set Gnome3 as default
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
