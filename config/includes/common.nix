@@ -28,6 +28,9 @@
     pkgs.git
   ];
 
+  # Set NixOS version
+  system.stateVersion = "20.03";
+
   # Add XFCE4, Gnome3 and i3 and set Gnome3 as default
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
@@ -36,6 +39,10 @@
 
   # Show Plymouth bootscreen
   boot.plymouth.enable = true;
+  boot.plymouth.logo = pkgs.fetchurl {
+    url = "https://prologin.org/static/img/logo_cube.png";
+    sha256 = "667efb8b47cd016e9f8b6ebb2cb63bc84cdea3c66eda771d953bc9debac3bf98";
+  };
 
   # Fix Plasma5 and Seahorse collision
   programs.ssh.askPassword = "${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass";
