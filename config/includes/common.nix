@@ -54,7 +54,6 @@
   environment.gnome3.excludePackages = [
     pkgs.gnome3.simple-scan
     pkgs.gnome3.epiphany
-    pkgs.gnome3.geary
   ];
 
   # Show Plymouth bootscreen
@@ -85,4 +84,7 @@
 
   # Disable Bluetooth
   hardware.bluetooth.enable = false;
+
+  # Disable printing
+  config.services.printing.enable = false;
 }
