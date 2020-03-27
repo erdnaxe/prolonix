@@ -40,6 +40,23 @@
   services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager.defaultSession = "gnome-xorg";
 
+  # Disable some Gnome defaults
+  services.dleyna-renderer.enable = false;
+  services.dleyna-server.enable = false;
+  services.gnome3.tracker-miners.enable = false;
+  services.gnome3.tracker.enable = false;
+  services.packagekit.enable = false;
+  services.gnome3.gnome-remote-desktop.enable = false;
+  services.gnome3.gnome-user-share.enable = false;
+  services.gnome3.rygel.enable = false;
+  services.avahi.enable = false;
+  services.geoclue2.enable = false;
+  services.xserver.desktopManager.gnome3.excludePackages = [
+    pkgs.gnome3.simple-scan
+    pkgs.gnome3.epiphany
+    pkgs.gnome3.geary
+  ];
+
   # Show Plymouth bootscreen
   boot.plymouth.enable = true;
   boot.plymouth.themePackages = [
@@ -65,4 +82,7 @@
 
   # Disable hardware RNG entropy gatherer (fix virtual machines)
   security.rngd.enable = false;
+
+  # Disable Bluetooth
+  hardware.bluetooth.enable = false;
 }
