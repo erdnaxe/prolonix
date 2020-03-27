@@ -42,10 +42,17 @@
 
   # Show Plymouth bootscreen
   boot.plymouth.enable = true;
-  boot.plymouth.logo = pkgs.fetchurl {
-    url = "https://prologin.org/static/img/logo_cube.png";
-    sha256 = "667efb8b47cd016e9f8b6ebb2cb63bc84cdea3c66eda771d953bc9debac3bf98";
-  };
+  boot.plymouth.themePackages = [
+    (pkgs.breeze-plymouth.override {
+      logoFile = pkgs.fetchurl {
+        url = "https://prologin.org/static/img/logo_cube.png";
+        sha256 = "667efb8b47cd016e9f8b6ebb2cb63bc84cdea3c66eda771d953bc9debac3bf98";
+      };
+      logoName = "logo_cube";
+      osName = "Prologin";
+      osVersion = "2020";
+    })
+  ];
 
   # Fix Plasma5 and Seahorse collision
   programs.ssh.askPassword = "${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass";
