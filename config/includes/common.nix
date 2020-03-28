@@ -18,6 +18,9 @@
   # Set NixOS version
   system.stateVersion = "20.03";
 
+  # Allow non-free software such as VSCode
+  nixpkgs.config.allowUnfree = true;
+
   # Remove NixOS documentation
   documentation.nixos.enable = false;
 
