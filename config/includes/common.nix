@@ -61,6 +61,9 @@
   # Fix Plasma5 and Seahorse collision
   programs.ssh.askPassword = "${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass";
 
+  # Fix XFCE4 and LXQt collision
+  services.gvfs.package = pkgs.lib.mkForce pkgs.gvfs;
+
   # Disable hardware RNG entropy gatherer (fix virtual machines)
   security.rngd.enable = false;
 
