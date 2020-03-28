@@ -21,9 +21,10 @@
   # Remove NixOS documentation
   documentation.nixos.enable = false;
 
-  # Add XFCE4, Gnome3 and i3 and set Gnome3 as default
+  # Add XFCE4, Gnome3, LXQt and i3 and set Gnome3 as default
   services.xserver.desktopManager.xfce.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
+  services.xserver.desktopManager.lxqt.enable = true;
   services.xserver.windowManager.i3.enable = true;
   services.xserver.displayManager.defaultSession = "gnome-xorg";
 
