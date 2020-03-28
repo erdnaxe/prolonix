@@ -14,6 +14,7 @@
     pkgs.netbeans
     pkgs.jetbrains.pycharm-community
     pkgs.atom
+    pkgs.vscode
     # non-free license issues :
     # pkgs.vscode-with-extensions
     # pkgs.sublime
@@ -27,13 +28,13 @@
     pkgs.tmux
     pkgs.git
     pkgs.zsh
-    pkgs.grml-zsh-config
     pkgs.htop
     pkgs.tree
     pkgs.wget
     pkgs.rsync
 
     # Programming language support and libs
+    pkgs.gcc
     pkgs.boost
     pkgs.gdb
     pkgs.jdk
