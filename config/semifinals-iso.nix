@@ -38,5 +38,8 @@ import <nixpkgs/nixos> {
 
     # Autologin on virtual consoles
     services.mingetty.autologinUser = "live";
+
+    # Provide user skeleton
+    security.pam.makeHomeDir.skelDirectory = ./user-skeleton;
   };
 }
