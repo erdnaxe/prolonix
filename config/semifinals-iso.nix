@@ -30,7 +30,7 @@ import <nixpkgs/nixos> {
     users.users.live = {
       isNormalUser = true;
       extraGroups = [ "video" ];
-      home = "/home/live";
+      createHome = false;
       description = "Live User";
       # Allow the graphical user to login without password
       initialHashedPassword = "";
@@ -40,6 +40,8 @@ import <nixpkgs/nixos> {
     services.mingetty.autologinUser = "live";
 
     # Provide user skeleton
-    security.pam.makeHomeDir.skelDirectory = ./user-skeleton;
+    security.pam.services.login.makeHomeDir = true;
+    security.pam.services.sddm.makeHomeDir = true;
+    security.pam.makeHomeDir.skelDirectory = "${./user-skeleton}";
   };
 }
